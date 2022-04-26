@@ -28,6 +28,7 @@ public class CubeController : MonoBehaviour
 
         if(m_SeeCube == true)
         {
+            //left click
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 if (hit.transform.CompareTag("Vertical"))
@@ -47,6 +48,7 @@ public class CubeController : MonoBehaviour
                 }
             }
 
+            //right click
             if (Input.GetKeyDown(KeyCode.Mouse1))
             {
                 if (hit.transform.CompareTag("Vertical"))
@@ -65,6 +67,12 @@ public class CubeController : MonoBehaviour
                     hit.transform.position -= Vector3.forward * m_MovePower;
                 }
             }
+
+            //pressed E
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                SwitchGrafity(hit);
+            }
         }       
     }
 
@@ -80,6 +88,18 @@ public class CubeController : MonoBehaviour
         else if (m_MovePower < 0)
         {
             m_MovePower = 0;
+        }
+    }
+
+    private void SwitchGrafity(RaycastHit hit)
+    {
+        if (hit.rigidbody.useGravity == true)
+        {
+            hit.rigidbody.useGravity = false;
+        }
+        else if (hit.rigidbody.useGravity == false)
+        {
+            hit.rigidbody.useGravity = true;
         }
     }
 }
