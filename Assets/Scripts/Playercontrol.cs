@@ -29,6 +29,7 @@ public class Playercontrol : MonoBehaviour
         //Check if grounded
         Isgrounded = Physics.Raycast(transform.position, Vector3.down, m_Playerheight * 0.5f + 0.2f, m_GroundLayer);
 
+        //Add drag if on ground
         if (Isgrounded)
             m_rb.drag = m_GroundDrag;
         else
@@ -37,6 +38,7 @@ public class Playercontrol : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //Adds force to the player rigidbody
         m_rb.AddForce(m_Movement *(m_Speed * 10f), ForceMode.Force);
     }
 

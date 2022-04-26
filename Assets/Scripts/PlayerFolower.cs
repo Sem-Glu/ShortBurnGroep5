@@ -9,6 +9,7 @@ public class PlayerFolower : MonoBehaviour
 
     private void Update()
     {
+        //Sets the position of the camera to the position of the player with an offset
         transform.position = m_Player.position + new Vector3(0, m_Yoffset, 0);
     }
 }
