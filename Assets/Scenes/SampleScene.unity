@@ -351,6 +351,9 @@ MonoBehaviour:
   m_PowerText: {fileID: 1174874810}
   m_PowerScale: 0.1
   m_MovePower: 0
+  m_Red: {fileID: 2100000, guid: b519ccc207ace9e4d9ced23e9c66fc81, type: 2}
+  m_Blue: {fileID: 2100000, guid: 44454b664189925409a927f1c086e48c, type: 2}
+  m_Yellow: {fileID: 2100000, guid: 70cdc682a63c8104781d827e4982e5bd, type: 2}
 --- !u!1 &1174874808
 GameObject:
   m_ObjectHideFlags: 0

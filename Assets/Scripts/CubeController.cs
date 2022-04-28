@@ -73,6 +73,12 @@ public class CubeController : MonoBehaviour
             {
                 SwitchGrafity(hit);
             }
+
+            //pressed Q
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                ChangeState(hit);
+            }
         }       
     }
 
@@ -100,6 +106,22 @@ public class CubeController : MonoBehaviour
         else if (hit.rigidbody.useGravity == false)
         {
             hit.rigidbody.useGravity = true;
+        }
+    }
+
+    private void ChangeState(RaycastHit hit)
+    {
+        if (hit.transform.GetComponent<CubeInfo>().m_CurrentState == CubeInfo.m_State.Horizontal)
+        {
+            hit.transform.GetComponent<CubeInfo>().m_CurrentState = CubeInfo.m_State.Vertical;
+        }
+        else if(hit.transform.GetComponent<CubeInfo>().m_CurrentState == CubeInfo.m_State.Vertical)
+        {
+            hit.transform.GetComponent<CubeInfo>().m_CurrentState = CubeInfo.m_State.Forward;
+        }
+        else if(hit.transform.GetComponent<CubeInfo>().m_CurrentState == CubeInfo.m_State.Forward)
+        {
+            hit.transform.GetComponent<CubeInfo>().m_CurrentState = CubeInfo.m_State.Horizontal;
         }
     }
 }
